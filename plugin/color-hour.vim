@@ -13,7 +13,7 @@ function! ColorHour()
 	let s:hr = str2nr(strftime('%H'))
 	let s:colorsList = split(g:ColorHourList)
 
-	let s:timeBlockSize = 24 / len(s:colorsList)
+	let s:timeBlockSize = 24.0 / len(s:colorsList)
 
 	"echo s:hr . ' ' . s:timeBlockSize
 
