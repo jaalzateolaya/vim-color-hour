@@ -8,8 +8,8 @@ if !exists("g:ColorHourAutoRun")
     let g:ColorHourAutoRun = 1
 endif
 
-command! -nargs=0 ColorHour call ColorHour()
-function! ColorHour()
+command! -nargs=0 ColorHour call ColorHour(1)
+function! ColorHour(timerId)
 	let s:hr = str2nr(strftime('%H'))
 	let s:colorsList = split(g:ColorHourList)
 
@@ -31,4 +31,5 @@ endfunction
 
 if g:ColorHourAutoRun
 	ColorHour
+	call timer_start (1000*60, 'ColorHour', {'repeat': -1})
 endif
