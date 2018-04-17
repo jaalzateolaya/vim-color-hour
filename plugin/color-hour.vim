@@ -22,7 +22,9 @@ function! ColorHour(timerId)
 		let s:idx += 1
 	endwhile
 
-	execute 'colorscheme ' . s:colorsList[s:idx]
+	if !exists("g:colors_name") || g:colors_name != s:colorsList[s:idx]
+		execute 'colorscheme ' . s:colorsList[s:idx]
+	endif
 endfunction
 
 if g:ColorHourAutoRun
